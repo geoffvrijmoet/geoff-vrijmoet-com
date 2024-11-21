@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geoff Vrijmoet | Filmmaker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Comfortaa', 'sans-serif'],
+                    },
+                    colors: {
+                        'off-black': '#141414',     // Slightly softer than pure black
+                        'charcoal': '#1A1A1A',      // Even softer black for contrast
+                        'soft-white': '#F8F8F8',    // Slightly off-white
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-off-black">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-off-black/90 backdrop-blur-sm">
+        <div class="container mx-auto px-6 py-6">
+            <div class="flex justify-between items-center text-soft-white">
+                <div class="w-64 md:w-96 pl-0 md:pl-[103px]">
+                    <a href="#" class="hover:text-white transition-colors">
+                        <!-- Hide full name on mobile, show on md and up -->
+                        <span class="hidden md:inline text-2xl font-light">Geoff Vrijmoet</span>
+                        <!-- Show larger GV on mobile, hide on md and up -->
+                        <span class="inline md:hidden text-3xl font-medium">GV</span>
+                    </a>
+                </div>
+                <div class="space-x-12 text-sm font-light">
+                    <a href="#work" class="hover:text-white transition-colors">Work</a>
+                    <a href="#ventures" class="hover:text-white transition-colors">Ventures</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Profile Image -->
+    <section class="h-screen relative flex items-center justify-center text-soft-white">
+        <div class="absolute inset-0 bg-gradient-to-t from-off-black via-off-black/80 to-transparent"></div>
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Profile Image -->
+                <div class="relative z-10 w-64 h-64 md:w-96 md:h-96">
+                    <img src="https://pbs.twimg.com/profile_images/1668646181767970818/L-YidaTy_400x400.jpg"
+                         alt="Geoff Vrijmoet"
+                         class="w-full h-full object-cover rounded-full border-4 border-soft-white/10">
+                </div>
+                <!-- Text Content -->
+                <div class="relative text-center md:text-left fade-in max-w-2xl">
+                    <h1 class="text-6xl font-light mb-4">Filmmaker</h1>
+                    <p class="text-xl font-light opacity-90 mb-8">Director • Entrepreneur • Digital Creator</p>
+                    <a href="#work" class="inline-block px-8 py-4 bg-soft-white text-off-black rounded hover:bg-white transition-all transform hover:-translate-y-1">
+                        View My Work
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-24 relative text-soft-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-light mb-24">Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- The Film Society -->
+                <div class="group">
+                    <div class="overflow-hidden rounded bg-charcoal hover:bg-charcoal/80 transition-colors">
+                        <div class="h-[600px] overflow-hidden">
+                            <img src="https://m.media-amazon.com/images/M/MV5BMzIxYWMxMmQtOTcwZC00YjkxLWI1NjgtMzY3YWZkNDIyNTI3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" 
+                                 alt="The Film Society" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-light">The Film Society</h3>
+                            <p class="text-soft-white/70 font-light">Director, 2017</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luz -->
+                <div class="group">
+                    <div class="overflow-hidden rounded bg-charcoal hover:bg-charcoal/80 transition-colors">
+                        <div class="h-[600px] overflow-hidden">
+                            <img src="https://m.media-amazon.com/images/M/MV5BYzkzYWUyNjItMTQxZi00ZDFhLWIwN2MtYmMyMDE5NmQ2YTYzXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" 
+                                 alt="Luz" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-light">Luz</h3>
+                            <p class="text-soft-white/70 font-light">Camera & Electrical, 2020</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sex Weather -->
+                <div class="group">
+                    <div class="overflow-hidden rounded bg-charcoal hover:bg-charcoal/80 transition-colors">
+                        <div class="h-[600px] overflow-hidden">
+                            <img src="https://marvel-b1-cdn.bc0a.com/f00000000280066/d2snwnmzyr8jue.cloudfront.net/brg_764_270.jpeg" 
+                                 alt="Sex Weather" 
+                                 class="w-full h-full object-contain">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-2xl font-light">Sex Weather</h3>
+                            <p class="text-soft-white/70 font-light">Sound Department, 2018</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Section -->
+    <section id="ventures" class="py-24 bg-charcoal text-soft-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-medium mb-24">Ventures</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="bg-off-black p-8 rounded hover:bg-off-black/80 transition-colors">
+                    <h3 class="text-2xl font-medium mb-4">Daydreamers</h3>
+                    <p class="text-soft-white/70 mb-6">Co-Founder & Operator</p>
+                    <a href="https://www.daydreamersnyc.com" class="text-white hover:text-soft-white/70 transition-colors">Visit Website →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 text-soft-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-medium mb-24">Contact</h2>
+            <div class="max-w-2xl mx-auto">
+                <form name="contact" 
+                      method="POST" 
+                      data-netlify="true" 
+                      action="/success" 
+                      class="space-y-8">
+                    <input type="hidden" name="form-name" value="contact" />
+                    
+                    <input type="text" 
+                           name="name" 
+                           placeholder="Name" 
+                           required
+                           class="w-full bg-charcoal border border-soft-white/10 rounded px-6 py-4 focus:outline-none focus:border-soft-white/30 text-soft-white placeholder-soft-white/50">
+                    
+                    <input type="email" 
+                           name="email" 
+                           placeholder="Email" 
+                           required
+                           class="w-full bg-charcoal border border-soft-white/10 rounded px-6 py-4 focus:outline-none focus:border-soft-white/30 text-soft-white placeholder-soft-white/50">
+                    
+                    <textarea name="message" 
+                             placeholder="Message" 
+                             required
+                             class="w-full bg-charcoal border border-soft-white/10 rounded px-6 py-4 focus:outline-none focus:border-soft-white/30 text-soft-white placeholder-soft-white/50 h-32"></textarea>
+                    
+                    <button type="submit" 
+                            class="px-8 py-4 bg-soft-white text-off-black font-medium rounded hover:bg-white transition-all transform hover:-translate-y-1">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html> 
