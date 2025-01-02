@@ -56,9 +56,9 @@ export function TypeWriter({
   return (
     <>
       {completedWords.map((word, index) => (
-        <span key={index} className="inline-block whitespace-pre">
-          {word}
-          {index < words.length - 1 && index < wordIndex ? "• " : ""}
+        <span key={index} className="inline-block">
+          {word.trim()}
+          {index < words.length - 1 && index < wordIndex ? " • " : ""}
         </span>
       ))}
       {wordIndex < words.length && !isDone && (
