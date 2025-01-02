@@ -69,10 +69,10 @@ export function ContactForm() {
   return (
     <section id="contact" className="py-20 px-4">
       <div className="max-w-xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Get in Touch</h2>
+        <h2 className="font-heading text-3xl text-center mb-12">Get in Touch</h2>
         {submitStatus.message && (
           <div
-            className={`mb-6 p-4 rounded-md ${
+            className={`mb-6 p-4 rounded-md font-light ${
               submitStatus.success
                 ? "bg-green-50 text-green-900 dark:bg-green-900/10 dark:text-green-100"
                 : "bg-red-50 text-red-900 dark:bg-red-900/10 dark:text-red-100"
@@ -88,9 +88,9 @@ export function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="font-light">Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Your name" {...field} />
+                    <Input placeholder="Your name" className="font-light" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -101,11 +101,11 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="font-light">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="your@email.com" type="email" {...field} />
+                    <Input placeholder="your@email.com" type="email" className="font-light" {...field} />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="font-light" />
                 </FormItem>
               )}
             />
@@ -114,15 +114,15 @@ export function ContactForm() {
               name="message"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Message</FormLabel>
+                  <FormLabel className="font-light">Message</FormLabel>
                   <FormControl>
                     <Textarea 
                       placeholder="Tell me about your project..."
-                      className="min-h-[150px]"
+                      className="min-h-[150px] font-light"
                       {...field}
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="font-light" />
                 </FormItem>
               )}
             />

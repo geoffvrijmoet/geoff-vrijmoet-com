@@ -18,10 +18,10 @@ export function Hero() {
           className="object-cover"
         />
       </div>
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+      <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
         Geoff Vrijmoet
       </h1>
-      <div className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl flex flex-wrap justify-center gap-x-2">
+      <div className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl flex flex-wrap justify-center gap-x-2 font-light">
         <TypeWriter 
           words={roles} 
           delay={50}

@@ -11,8 +11,8 @@ export function WorkSection({ id, title, description, type = 'default' }: WorkSe
   return (
     <section id={id} className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center mb-12">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">{title}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300">{description}</p>
+        <h2 className="font-heading text-3xl sm:text-4xl mb-4">{title}</h2>
+        <p className="text-xl text-gray-600 dark:text-gray-300 font-light">{description}</p>
       </div>
       {type === 'film' ? (
         <FilmSection />

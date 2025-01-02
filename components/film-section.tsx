@@ -67,7 +67,7 @@ export function FilmSection() {
           )}
           <div className="p-3">
             <div className="flex items-start justify-between">
-              <h3 className="text-sm font-semibold mb-1">{credit.title}</h3>
+              <h3 className="text-sm font-light mb-1">{credit.title}</h3>
               {credit.rating && (
                 <div className="flex items-center gap-0.5 text-yellow-500">
                   <Star className="w-3 h-3 fill-current" />
@@ -75,11 +75,11 @@ export function FilmSection() {
                 </div>
               )}
             </div>
-            <div className="flex items-center gap-1 text-gray-600 dark:text-gray-300 mb-1">
+            <div className="flex items-center gap-1 text-gray-600 dark:text-gray-300 mb-1 font-light">
               <Camera className="w-3 h-3" />
               <span className="text-xs">{credit.role}</span>
             </div>
-            <div className="text-xs text-gray-500 dark:text-gray-400">
+            <div className="text-xs text-gray-500 dark:text-gray-400 font-light">
               {credit.year} {credit.isShort && "• Short"}
             </div>
           </div>
