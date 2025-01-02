@@ -15,7 +15,7 @@ export function Hero() {
           alt="Geoff Vrijmoet"
           fill
           priority
-          className="object-cover"
+          className="object-cover scale-[1.3] translate-y-[15%] translate-x-[5%]" // Adjust scale and translation
         />
       </div>
       <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">

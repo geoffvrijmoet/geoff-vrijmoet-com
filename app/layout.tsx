@@ -27,6 +27,14 @@ const sulphurPoint = localFont({
 export const metadata: Metadata = {
   title: "Geoff Vrijmoet",
   description: "Filmmaker • Web Developer • Podcast Editor",
+  icons: {
+    icon: [
+      {
+        url: "/favicon.svg",
+        type: "image/svg+xml",
+      }
+    ],
+  },
 };
 
 export default function RootLayout({
