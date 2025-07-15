@@ -38,6 +38,14 @@ interface OMDBResponse {
   Poster: string
 }
 
+interface OmdbSearchResult {
+  title: string;
+  year: string;
+  imdbID: string;
+  poster: string;
+  type: string;
+}
+
 // Helper function to get high quality image URL
 function getHighQualityPoster(posterUrl: string): string {
   // Convert URL from low quality to high quality
@@ -84,6 +92,34 @@ export async function fetchIMDbCredits(): Promise<FilmCredit[]> {
     console.error('Error fetching IMDb credits:', error)
     throw error
   }
+}
+
+export async function searchOmdbByTitle(title: string): Promise<OmdbSearchResult[]> {
+  if (!OMDB_API_KEY) {
+    throw new Error('OMDB API key is not configured');
+  }
+  const url = `https://www.omdbapi.com/?s=${encodeURIComponent(title)}&apikey=${OMDB_API_KEY}`;
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error('Failed to fetch OMDB search results');
+  }
+  const data = await response.json();
+  if (data.Response === 'False') {
+    return [];
+  }
+  return (data.Search || []).map((item: {
+    Title: string;
+    Year: string;
+    imdbID: string;
+    Poster: string;
+    Type: string;
+  }) => ({
+    title: item.Title,
+    year: item.Year,
+    imdbID: item.imdbID,
+    poster: item.Poster,
+    type: item.Type,
+  }));
 }
 
 function getRoleForFilm(filmId: string): string {

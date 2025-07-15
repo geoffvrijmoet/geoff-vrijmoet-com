@@ -7,6 +7,8 @@ interface FavoriteDoc {
   type: string;
   year: number;
   note: string;
+  imdbID: string;
+  poster: string;
 }
 
 export default async function FavoritesPage() {
@@ -33,12 +35,29 @@ export default async function FavoritesPage() {
                 key={fav._id}
                 className="bg-white rounded-xl shadow p-6 flex flex-col gap-2 border border-gray-100 hover:shadow-lg transition"
               >
-                <h2 className="text-xl font-semibold">{fav.title}</h2>
-                <div className="flex items-center gap-2 text-sm text-gray-500">
-                  <span className="px-2 py-0.5 bg-gray-100 rounded-full font-medium">{fav.type}</span>
-                  <span>{fav.year}</span>
+                <div className="flex gap-4 items-start">
+                  <img
+                    src={fav.poster && fav.poster !== "N/A" ? fav.poster : "/images/no-poster.png"}
+                    alt={fav.title}
+                    className="w-20 h-28 object-cover rounded shadow"
+                  />
+                  <div className="flex-1">
+                    <h2 className="text-xl font-semibold">{fav.title}</h2>
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <span className="px-2 py-0.5 bg-gray-100 rounded-full font-medium">{fav.type}</span>
+                      <span>{fav.year}</span>
+                    </div>
+                    <p className="text-gray-700 mt-2">{fav.note}</p>
+                    <a
+                      href={`https://www.imdb.com/title/${fav.imdbID}/`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-blue-600 underline mt-2 inline-block"
+                    >
+                      View on IMDB
+                    </a>
+                  </div>
                 </div>
-                <p className="text-gray-700 mt-2">{fav.note}</p>
               </div>
             ))}
           </div>
