@@ -38,8 +38,11 @@ async function verifyRecaptcha(token: string): Promise<boolean> {
 
 export async function sendEmail(formData: FormData) {
   try {
+    // Validate input data
+    const validatedData = formSchema.parse(formData)
+
     // Verify reCAPTCHA token
-    const isValidRecaptcha = await verifyRecaptcha(formData.recaptchaToken)
+    const isValidRecaptcha = await verifyRecaptcha(validatedData.recaptchaToken)
     if (!isValidRecaptcha) {
       return { success: false, error: 'reCAPTCHA verification failed. Please try again.' }
     }
@@ -55,15 +58,15 @@ export async function sendEmail(formData: FormData) {
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Send to yourself
-      replyTo: formData.email,
-      subject: `Contact Form Message from ${formData.name}`,
-      text: formData.message,
+      replyTo: validatedData.email,
+      subject: `Contact Form Message from ${validatedData.name}`,
+      text: validatedData.message,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>From:</strong> ${formData.name}</p>
-        <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>From:</strong> ${validatedData.name}</p>
+        <p><strong>Email:</strong> ${validatedData.email}</p>
         <p><strong>Message:</strong></p>
-        <p>${formData.message}</p>
+        <p>${validatedData.message}</p>
       `,
     })
 
