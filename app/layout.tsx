@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ReCaptchaProvider } from "@/components/recaptcha-provider";
 
 const sulphurPoint = localFont({
   src: [
@@ -45,7 +46,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${sulphurPoint.variable} font-sans font-normal antialiased`}>
-        {children}
+        <ReCaptchaProvider>
+          {children}
+        </ReCaptchaProvider>
       </body>
     </html>
   );

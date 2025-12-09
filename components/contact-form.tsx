@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3"
 import * as z from "zod"
 import { Button } from "@/components/ui/button"
 import {
@@ -29,6 +30,7 @@ export function ContactForm() {
     success?: boolean
     message?: string
   }>({})
+  const { executeRecaptcha } = useGoogleReCaptcha()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,9 +42,18 @@ export function ContactForm() {
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!executeRecaptcha) {
+      setSubmitStatus({
+        success: false,
+        message: "reCAPTCHA not loaded. Please refresh the page and try again.",
+      })
+      return
+    }
+
     try {
       setSending(true)
-      const result = await sendEmail(values)
+      const recaptchaToken = await executeRecaptcha("contact_form")
+      const result = await sendEmail({ ...values, recaptchaToken })
       
       if (result.success) {
         setSubmitStatus({
